@@ -135,7 +135,6 @@
                         <outletCollection property="xorOButton" destination="Ypt-MQ-nzS" collectionClass="NSMutableArray" id="len-RG-ZpI"/>
                         <outletCollection property="xorOButton" destination="6Ey-rB-S9R" collectionClass="NSMutableArray" id="miG-dl-D1y"/>
                         <outletCollection property="xorOButton" destination="ejS-H4-zSz" collectionClass="NSMutableArray" id="gXu-Q5-gA5"/>
-                        <outletCollection property="rowOne" destination="vg0-wd-pSL" collectionClass="NSMutableArray" id="Av5-He-u6l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

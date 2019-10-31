@@ -62,6 +62,7 @@ class ViewController: UIViewController {
     }
     
     var collectionOfXO = RowColumnSet()
+    let xSet: Set = ["x"]
     
     @IBAction func selectedButton(_ sender: UIButton) {
         
@@ -111,12 +112,17 @@ class ViewController: UIViewController {
         default:
             pickXorO(sender)
         }
-//        print(collectionOfXO.rowOne)
+        print(collectionOfXO.rowOne)
 //        print(collectionOfXO.rowTwo)
-        print(collectionOfXO.columnTwo)
         
-        
+        if xorOButton[0].isEnabled == false && xorOButton[1].isEnabled == false && xorOButton[2].isEnabled == false {
+            print("")
+            if collectionOfXO.rowOne == xSet {
+                print("all x")
+            }
+        }
     }
+    
     
 }
 
