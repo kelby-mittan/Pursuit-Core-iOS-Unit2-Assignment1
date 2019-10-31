@@ -85,16 +85,45 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIC TAC TOE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b09-Bg-yo1">
+                                <rect key="frame" x="20" y="44" width="374" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="35"/>
+                                <color key="textColor" red="0.96620899438858032" green="0.50232926090003582" blue="0.36044026488168429" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPY-fd-aqG">
+                                <rect key="frame" x="115" y="113" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Let's Play"/>
                                 <connections>
-                                    <action selector="selectedButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6AR-Sv-ba7"/>
+                                    <action selector="letsPlayGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8gF-nU-Orn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKg-mf-LXD">
+                                <rect key="frame" x="20" y="151" width="374" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="xorOButton" destination="ejS-H4-zSz" collectionClass="NSMutableArray" id="ZVh-Yh-hLR"/>
+                        <outlet property="letsPlay" destination="bKg-mf-LXD" id="9Cu-EI-7Mu"/>
+                        <outletCollection property="xorOButton" destination="8h9-nB-pQo" collectionClass="NSMutableArray" id="qb8-Hv-QiX"/>
+                        <outletCollection property="xorOButton" destination="86C-LW-1TX" collectionClass="NSMutableArray" id="TQI-DR-brw"/>
+                        <outletCollection property="xorOButton" destination="vg0-wd-pSL" collectionClass="NSMutableArray" id="T6C-5X-2LU"/>
+                        <outletCollection property="xorOButton" destination="tTE-hq-29D" collectionClass="NSMutableArray" id="yzx-T1-7bJ"/>
+                        <outletCollection property="xorOButton" destination="Xju-oX-r9Q" collectionClass="NSMutableArray" id="cu1-bo-Dij"/>
+                        <outletCollection property="xorOButton" destination="ipc-hb-uLM" collectionClass="NSMutableArray" id="nlb-aj-fsg"/>
+                        <outletCollection property="xorOButton" destination="Ypt-MQ-nzS" collectionClass="NSMutableArray" id="len-RG-ZpI"/>
+                        <outletCollection property="xorOButton" destination="6Ey-rB-S9R" collectionClass="NSMutableArray" id="miG-dl-D1y"/>
+                        <outletCollection property="xorOButton" destination="ejS-H4-zSz" collectionClass="NSMutableArray" id="gXu-Q5-gA5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
