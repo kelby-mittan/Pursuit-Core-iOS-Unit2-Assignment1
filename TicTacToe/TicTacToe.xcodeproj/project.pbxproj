@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		027FCC64236B5F01000C9D75 /* pickXorO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027FCC63236B5F01000C9D75 /* pickXorO.swift */; };
 		027FCC66236B6D80000C9D75 /* RowColumnArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027FCC65236B6D80000C9D75 /* RowColumnArr.swift */; };
 		57A2EF472194DBAF009B12CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2EF462194DBAF009B12CA /* AppDelegate.swift */; };
 		57A2EF492194DBAF009B12CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A2EF482194DBAF009B12CA /* ViewController.swift */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		027FCC63236B5F01000C9D75 /* pickXorO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickXorO.swift; sourceTree = "<group>"; };
 		027FCC65236B6D80000C9D75 /* RowColumnArr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowColumnArr.swift; sourceTree = "<group>"; };
 		57A2EF432194DBAF009B12CA /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A2EF462194DBAF009B12CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 				027FCC65236B6D80000C9D75 /* RowColumnArr.swift */,
 				57A2EF4A2194DBAF009B12CA /* Main.storyboard */,
 				57A2EF582194DBFD009B12CA /* GameButton.swift */,
-				027FCC63236B5F01000C9D75 /* pickXorO.swift */,
 				57A2EF5A2194DC83009B12CA /* TicTacToeBrain.swift */,
 				57A2EF4D2194DBB0009B12CA /* Assets.xcassets */,
 				57A2EF4F2194DBB0009B12CA /* LaunchScreen.storyboard */,
@@ -149,7 +146,6 @@
 			files = (
 				57A2EF492194DBAF009B12CA /* ViewController.swift in Sources */,
 				027FCC66236B6D80000C9D75 /* RowColumnArr.swift in Sources */,
-				027FCC64236B5F01000C9D75 /* pickXorO.swift in Sources */,
 				57A2EF592194DBFD009B12CA /* GameButton.swift in Sources */,
 				57A2EF472194DBAF009B12CA /* AppDelegate.swift in Sources */,
 				57A2EF5B2194DC83009B12CA /* TicTacToeBrain.swift in Sources */,
