@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var playerTurn: UILabel!
     @IBOutlet weak var playerTwoTurn: UILabel!
+    @IBOutlet weak var winnerLabel: UILabel!
     
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,7 +32,27 @@ class ViewController: UIViewController {
         playerTurn.text = "Player One.... Go!!"
     }
     
-    func insertXorO(_ button: UIButton) -> String {
+    func disableButtons() {
+        for button in xorOButton {
+            button.isEnabled = false
+        }
+    }
+    
+    func oneWins() {
+        winnerLabel.text = "Player One Wins"
+        playerTurn.text = ""
+        playerTwoTurn.text = ""
+        disableButtons()
+    }
+    
+    func twoWins() {
+        winnerLabel.text = "Player Two Wins"
+        playerTurn.text = ""
+        playerTwoTurn.text = ""
+        disableButtons()
+    }
+    
+    func appendXorO(_ button: UIButton) -> String {
         var xOrO: String
         if playerOneGo {
             xOrO = "o"
@@ -62,105 +83,124 @@ class ViewController: UIViewController {
     }
     
     var collectionOfXO = RowColumnArr()
-    let xSet: Array = ["x","x","x"]
-    let oSet: Array = ["o","o","o"]
+    let xArray: Array = ["x","x","x"]
+    let oArray: Array = ["o","o","o"]
     
     @IBAction func selectedButton(_ sender: UIButton) {
         
         switch sender.tag {
         case 0:
             pickXorO(sender)
-            collectionOfXO.rowOne.append(insertXorO(sender))
-            collectionOfXO.columnOne.append(insertXorO(sender))
-            collectionOfXO.diagOne.append(insertXorO(sender))
+            collectionOfXO.rowOne.append(appendXorO(sender))
+            collectionOfXO.columnOne.append(appendXorO(sender))
+            collectionOfXO.diagOne.append(appendXorO(sender))
         case 1:
             pickXorO(sender)
-            collectionOfXO.rowOne.append(insertXorO(sender))
-            collectionOfXO.columnTwo.append(insertXorO(sender))
+            collectionOfXO.rowOne.append(appendXorO(sender))
+            collectionOfXO.columnTwo.append(appendXorO(sender))
         case 2:
             pickXorO(sender)
-            collectionOfXO.rowOne.append(insertXorO(sender))
-            collectionOfXO.columnThree.append(insertXorO(sender))
-            collectionOfXO.diagTwo.append(insertXorO(sender))
+            collectionOfXO.rowOne.append(appendXorO(sender))
+            collectionOfXO.columnThree.append(appendXorO(sender))
+            collectionOfXO.diagTwo.append(appendXorO(sender))
         case 3:
             pickXorO(sender)
-            collectionOfXO.rowTwo.append(insertXorO(sender))
-            collectionOfXO.columnOne.append(insertXorO(sender))
+            collectionOfXO.rowTwo.append(appendXorO(sender))
+            collectionOfXO.columnOne.append(appendXorO(sender))
         case 4:
             pickXorO(sender)
-            collectionOfXO.rowTwo.append(insertXorO(sender))
-            collectionOfXO.columnTwo.append(insertXorO(sender))
-            collectionOfXO.diagOne.append(insertXorO(sender))
-            collectionOfXO.diagTwo.append(insertXorO(sender))
+            collectionOfXO.rowTwo.append(appendXorO(sender))
+            collectionOfXO.columnTwo.append(appendXorO(sender))
+            collectionOfXO.diagOne.append(appendXorO(sender))
+            collectionOfXO.diagTwo.append(appendXorO(sender))
         case 5:
             pickXorO(sender)
-            collectionOfXO.rowTwo.append(insertXorO(sender))
-            collectionOfXO.columnThree.append(insertXorO(sender))
+            collectionOfXO.rowTwo.append(appendXorO(sender))
+            collectionOfXO.columnThree.append(appendXorO(sender))
         case 6:
             pickXorO(sender)
-            collectionOfXO.rowThree.append(insertXorO(sender))
-            collectionOfXO.columnOne.append(insertXorO(sender))
-            collectionOfXO.diagTwo.append(insertXorO(sender))
+            collectionOfXO.rowThree.append(appendXorO(sender))
+            collectionOfXO.columnOne.append(appendXorO(sender))
+            collectionOfXO.diagTwo.append(appendXorO(sender))
         case 7:
             pickXorO(sender)
-            collectionOfXO.rowThree.append(insertXorO(sender))
-            collectionOfXO.columnTwo.append(insertXorO(sender))
+            collectionOfXO.rowThree.append(appendXorO(sender))
+            collectionOfXO.columnTwo.append(appendXorO(sender))
         case 8:
             pickXorO(sender)
-            collectionOfXO.rowThree.append(insertXorO(sender))
-            collectionOfXO.columnThree.append(insertXorO(sender))
-            collectionOfXO.diagOne.append(insertXorO(sender))
+            collectionOfXO.rowThree.append(appendXorO(sender))
+            collectionOfXO.columnThree.append(appendXorO(sender))
+            collectionOfXO.diagOne.append(appendXorO(sender))
         default:
             pickXorO(sender)
         }
-        print(collectionOfXO.rowOne)
-//        print(collectionOfXO.rowTwo)
         
-//        if xorOButton[0].isEnabled == false && xorOButton[1].isEnabled == false && xorOButton[2].isEnabled == false {
-//            print("")
-//            if collectionOfXO.rowOne == xSet {
-//                print("all x")
-//            } else if collectionOfXO.rowOne == oSet {
-//                print("all o")
-//            }
-//        } else if xorOButton[3].isEnabled == false && xorOButton[4].isEnabled == false && xorOButton[5].isEnabled == false {
-//            print("")
-//            if collectionOfXO.rowTwo == xSet {
-//                print("all x")
-//            } else if collectionOfXO.rowTwo == oSet {
-//                print("all o")
-//            }
-//        } else if xorOButton[6].isEnabled == false && xorOButton[7].isEnabled == false && xorOButton[8].isEnabled == false {
-//            print("")
-//            if collectionOfXO.rowThree == xSet {
-//                print("all x")
-//            } else if collectionOfXO.rowThree == oSet {
-//                print("all o")
-//            }
-//        } else if xorOButton[0].isEnabled == false && xorOButton[3].isEnabled == false && xorOButton[6].isEnabled == false {
-//            print("")
-//            if collectionOfXO.columnOne == xSet {
-//                print("all x")
-//            } else if collectionOfXO.columnOne == oSet {
-//                print("all o")
-//            }
-//        } else if xorOButton[1].isEnabled == false && xorOButton[4].isEnabled == false && xorOButton[7].isEnabled == false {
-//            print("")
-//            if collectionOfXO.columnTwo == xSet {
-//                print("all x")
-//            } else if collectionOfXO.columnTwo == oSet {
-//                print("all o")
-//            }
-//        } else if xorOButton[2].isEnabled == false && xorOButton[5].isEnabled == false && xorOButton[8].isEnabled == false {
-//            print("")
-//            if collectionOfXO.columnTwo == xSet {
-//                print("all x")
-//            } else if collectionOfXO.columnTwo == oSet {
-//                print("all o")
-//            }
-//        }
+        if collectionOfXO.rowOne == xArray {
+            oneWins()
+        } else if collectionOfXO.rowOne == oArray {
+            twoWins()
+        } else if collectionOfXO.rowTwo == xArray {
+            oneWins()
+        } else if collectionOfXO.rowTwo == oArray {
+            twoWins()
+        } else if collectionOfXO.rowThree == xArray {
+            oneWins()
+        } else if collectionOfXO.rowThree == oArray {
+            twoWins()
+        } else if collectionOfXO.columnOne == xArray {
+            oneWins()
+        } else if collectionOfXO.columnOne == oArray {
+            twoWins()
+        } else if collectionOfXO.columnTwo == xArray {
+            oneWins()
+        } else if collectionOfXO.columnTwo == oArray {
+            twoWins()
+        } else if collectionOfXO.columnThree == xArray {
+            oneWins()
+        } else if collectionOfXO.columnThree == oArray {
+            twoWins()
+        } else if collectionOfXO.diagOne == xArray {
+            oneWins()
+        } else if collectionOfXO.diagOne == oArray {
+            twoWins()
+        } else if collectionOfXO.diagTwo == xArray {
+            oneWins()
+        } else if collectionOfXO.diagTwo == oArray {
+            twoWins()
+        }
+        
+        
+
+        
+        print("row1\(collectionOfXO.rowOne)")
+        print(collectionOfXO.rowTwo)
+        print(collectionOfXO.rowThree)
+        print("col1 \(collectionOfXO.columnOne)")
+        print(collectionOfXO.columnTwo)
+        print(collectionOfXO.columnThree)
+        print("diag1\(collectionOfXO.diagOne)")
+        print(collectionOfXO.diagTwo)
     }
     
+    @IBAction func reset(_ sender: UIButton) {
+        for button in xorOButton {
+            button.setBackgroundImage(UIImage(named: "defaultGrey"), for: .normal)
+            button.isEnabled = true
+        }
+        collectionOfXO.rowOne.removeAll()
+        collectionOfXO.rowTwo.removeAll()
+        collectionOfXO.rowThree.removeAll()
+        collectionOfXO.columnOne.removeAll()
+        collectionOfXO.columnTwo.removeAll()
+        collectionOfXO.columnThree.removeAll()
+        collectionOfXO.diagOne.removeAll()
+        collectionOfXO.diagTwo.removeAll()
+        winnerLabel.text = ""
+        playerTwoTurn.text = ""
+        playerTurn.text = "Player One... Go!!"
+        playerOneGo = true
+        
+    }
     
 }
 
