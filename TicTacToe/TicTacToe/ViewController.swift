@@ -101,21 +101,14 @@ class ViewController: UIViewController {
     
     func pickXCompO(_ button: UIButton) {
         let randomButton = xorOButton.randomElement()!
-            button.setBackgroundImage(UIImage(named: "x"), for: .normal)
-            button.isEnabled = false
-            playerTurn.text = ""
-            randomButton.setBackgroundImage(UIImage(named: "o"), for: .normal)
-            randomButton.isEnabled = false
-            xorOButton.removeAll { (button) -> Bool in
-                button.isEnabled == false            
-            
-        } //else {
-//            xorOButton.randomElement()?.setBackgroundImage(UIImage(named: "o"), for: .normal)
-//            button.isEnabled = false
-//            playerOneGo.toggle()
-//            playerTurn.text = "Player One.... Go!!"
-//            playerTwoTurn.text = ""
-//        }
+        button.setBackgroundImage(UIImage(named: "x"), for: .normal)
+        button.isEnabled = false
+        playerTurn.text = ""
+        randomButton.setBackgroundImage(UIImage(named: "o"), for: .normal)
+        randomButton.isEnabled = false
+        xorOButton.removeAll { (button) -> Bool in
+            button.isEnabled == false
+        }
     }
     
     func allButtonsDisabled() -> Bool {
@@ -300,7 +293,7 @@ class ViewController: UIViewController {
         winnerLabel.text = ""
         playerTwoTurn.text = ""
         playerTurn.text = "Player One... Go!!"
-        playerOneGo = true
+//        playerOneGo = true
         
     }
     
