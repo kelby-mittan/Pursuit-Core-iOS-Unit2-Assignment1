@@ -55,9 +55,6 @@ class TicTacToeBrain {
         }
     }
     
-    
-     
-    
     func randomComputerGame(_ button: UIButton,_ buttons: [UIButton], _ playerX: Bool) {
         if playerX {
             if gameStatus[button.tag] == "" {
@@ -107,7 +104,6 @@ class TicTacToeBrain {
                 }
             }
     }
-    
     
     func smartComp(_ button: UIButton, _ gameButtons: [UIButton]) {
         if gameStatus[button.tag] == "" {
