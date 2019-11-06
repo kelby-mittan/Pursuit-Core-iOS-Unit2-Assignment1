@@ -14,9 +14,6 @@ class TicTacToeBrain {
     var buttonTracker = [UIButton]()
     var tagNumberTracker = [Int]()
     var keepGoing = true
-    
-  
-    
     var gameStatus = ["","","","","","","","",""]
     var playerTurn = "x"
     let winningArr = [[0,1,2], // row 1
@@ -31,10 +28,8 @@ class TicTacToeBrain {
     var whoWon = ""
     var twoPlayerBool = false
     var playCompBool = false
-    
     let beX = "x"
     let beO = "o"
-    
     
     func assignO(_ button: UIButton) {
         button.setBackgroundImage(UIImage(named: "oImage"), for: .normal)

@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         }
         twoPlayerButton.layer.cornerRadius = 10
         playVsCompButton.layer.cornerRadius = 10
+        beXButton.layer.cornerRadius = 10
+        beOButton.layer.cornerRadius = 10
         resetButton.layer.cornerRadius = 15
         brain.buttonTracker = xOButtons
         beXButton.isHidden = true
