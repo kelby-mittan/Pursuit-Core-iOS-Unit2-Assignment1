@@ -31,8 +31,9 @@ class TicTacToeBrain {
     var whoWon = ""
     var twoPlayerBool = false
     var playCompBool = false
-//    var buttons = [UIButton]()
     
+    let beX = "x"
+    let beO = "o"
     
     
     func assignO(_ button: UIButton) {
@@ -42,7 +43,7 @@ class TicTacToeBrain {
         button.adjustsImageWhenDisabled = false
     }
     
-    func assignButtons(_ button: UIButton) {
+    func assignXorOtoButtons(_ button: UIButton) {
         if gameStatus[button.tag] == "" {
             gameStatus[button.tag] = playerTurn
             if playerTurn == "x" {
@@ -62,9 +63,9 @@ class TicTacToeBrain {
     
      
     
-    func assignComp(_ button: UIButton,_ buttons: [UIButton]) {
-                
-        if gameStatus[button.tag] == "" {
+    func randomComputerGame(_ button: UIButton,_ buttons: [UIButton], _ playerX: Bool) {
+        if playerX {
+            if gameStatus[button.tag] == "" {
             gameStatus[button.tag] = playerTurn
             button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
             button.isEnabled = false
@@ -85,88 +86,37 @@ class TicTacToeBrain {
                 }
                 print(gameStatus)
             } while keepGoing == true
-            
-        }
+            }
+        } else {
+                if gameStatus[button.tag] == "" {
+                    gameStatus[button.tag] = playerTurn
+                    button.setBackgroundImage(UIImage(named: "oImage"), for: .normal)
+                    button.isEnabled = false
+                    button.adjustsImageWhenDisabled = false
+                    tagNumberTracker.append(button.tag)
+                    
+                    repeat {
+                        for randomButton in buttons.shuffled() {
+                            if gameStatus[randomButton.tag] == "" {
+                                randomButton.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
+                                randomButton.isEnabled = false
+                                randomButton.adjustsImageWhenDisabled = false
+                                gameStatus[randomButton.tag] = "x"
+                                tagNumberTracker.append(randomButton.tag)
+                                keepGoing = false
+                                break
+                            }
+                        }
+                        print(gameStatus)
+                    } while keepGoing == true
+                }
+            }
     }
-//        buttonTracker = buttonTracker.sorted(by: {$0.tag < $1.tag})
-////        print("Number of buttons in array \(buttonTracker.count)")
-//
-//        var randomButton = buttonTracker.randomElement()!
-//
-//        print("Your button is \(button.tag) and randomButton is \(randomButton.tag)")
-//
-//        if gameStatus[button.tag] == "" {
-//            print("Player turn is \(playerTurn)")
-////            gameStatus[button.tag] = playerTurn
-////            if playerTurn == "x" {
-////               buttonTracker.removeAll { (buttonInArray) -> Bool in
-////                return buttonInArray == button
-////
-////          buttonTracker.remove(at: button.tag)
-//            gameStatus[button.tag] = "R"
-//
-//            if gameStatus[randomButton.tag] == "R" {
-//                 repeat {
-//                            if randomButtonTackerNumber.contains(randomButton.tag) {
-//                                randomButton = buttonTracker.randomElement()!
-//
-//                            } else {
-//                                print("Keep going")
-//                                keepGoing = false
-//                            }
-//                            } while keepGoing
-//            } else {
-//
-//                randomButtonTackerNumber.append(randomButton.tag)
-//                gameStatus[randomButton.tag] = "R"
-//
-//            }
-//
-//
-//             keepGoing = true
-//
-//
-//
-//            print("array is now \(buttonTracker.map({$0.tag}))")
-//            //            buttonTracker.forEach({$0.tag == button.tag ? buttonTracker.remove(at: button.tag) : print("hi")})
-//
-//
-//
-////                buttonTracker.removeAll { (buttonInArray) -> Bool in
-////                   return buttonInArray == randomButton
-////                }
-//
-//                print("Updated array \(buttonTracker.count) and we removed button \(button)")
-//            print("Random button position \(randomButton.tag)")
-//
-////                gameStatus[randomButton.tag] = "o"
-//
-////            buttonTracker.remove(at: randomButton.tag)
-//
-//
-//            print("array is now \(buttonTracker.map({$0.tag}))")
-//
-//
-//
-//
-//                button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
-//                button.isEnabled = false
-//                button.adjustsImageWhenDisabled = false
-//
-//                randomButton.setBackgroundImage(UIImage(named: "oImage"), for: .normal)
-//                randomButton.isEnabled = false
-//                randomButton.adjustsImageWhenDisabled = false
-//            print(gameStatus)
-//            } else {
-//            print("not ")
-////        }
-//    }
-//    }
     
     
     func smartComp(_ button: UIButton, _ gameButtons: [UIButton]) {
         if gameStatus[button.tag] == "" {
-        gameStatus[button.tag] = playerTurn
+            gameStatus[button.tag] = playerTurn
             if playerTurn == "x" {
                 button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
                 playerTurn = "x"
@@ -179,6 +129,24 @@ class TicTacToeBrain {
                     } else if gameStatus[2] == "x" {
                         assignO(gameButtons[1])
                     }
+                case 1:
+                if gameStatus[0] == "x" {
+                    assignO(gameButtons[2])
+                } else if gameStatus[2] == "x" {
+                    assignO(gameButtons[0])
+                }
+                case 2:
+                    if gameStatus[1] == "x" {
+                        assignO(gameButtons[0])
+                    } else if gameStatus[0] == "x" {
+                        assignO(gameButtons[1])
+                    }
+                case 3:
+                    if gameStatus[0] == "x" {
+                        assignO(gameButtons[2])
+                    } else if gameStatus[2] == "x" {
+                        assignO(gameButtons[0])
+                    }
                 default:
                     assignO(gameButtons[4])
                 }
@@ -186,28 +154,12 @@ class TicTacToeBrain {
         }
     }
     
-//    func playComp(_ button: UIButton) {
-//        let randomButton = buttons.randomElement()!
-////        if gameStatus[button.tag] == "" {
-////            gameStatus[button.tag] = playerTurn
-////            if playerTurn == "x" {
-//                button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
-//                button.isEnabled = false
-//                button.adjustsImageWhenDisabled = false
-//                randomButton.setBackgroundImage(UIImage(named: "oImage"), for: .normal)
-//                randomButton.isEnabled = false
-//                buttons.removeAll { (button) -> Bool in
-//                    button.isEnabled == false
-////                }
-//            }
-////        }
-//    }
     
     func checkForWinner() {
-        for arr in winningArr {
-            if gameStatus[arr[0]] != "" && gameStatus[arr[0]] == gameStatus[arr[1]] && gameStatus[arr[1]] == gameStatus[arr[2]] {
+        for array in winningArr {
+            if gameStatus[array[0]] != "" && gameStatus[array[0]] == gameStatus[array[1]] && gameStatus[array[1]] == gameStatus[array[2]] {
                 gameOver = true
-                if gameStatus[arr[0]] == "x" {
+                if gameStatus[array[0]] == "x" {
                     whoWon = "Player X wins!!!"
                 } else {
                     whoWon = "Player O wins!!!"
@@ -241,6 +193,6 @@ class TicTacToeBrain {
         return itsATie
     }
     
-    
 }
+
 

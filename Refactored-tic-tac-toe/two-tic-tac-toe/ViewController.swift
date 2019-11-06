@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var twoPlayerButton: UIButton!
     @IBOutlet weak var playVsCompButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var beXButton: UIButton!
+    @IBOutlet weak var beOButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,11 @@ class ViewController: UIViewController {
         playVsCompButton.layer.cornerRadius = 10
         resetButton.layer.cornerRadius = 15
         brain.buttonTracker = xOButtons
+        beXButton.isHidden = true
+        beOButton.isHidden = true
     }
     var brain = TicTacToeBrain()
+    var playerX = true
     
     @IBAction func twoPlayerAction(_ sender: UIButton) {
         for button in xOButtons {
@@ -38,6 +43,8 @@ class ViewController: UIViewController {
         }
         brain.twoPlayerBool = true
         brain.playCompBool = false
+        twoPlayerButton.isHidden = true
+        playVsCompButton.isHidden = true
         playerOneLabel.text = "Go Player \"X\""
     }
     @IBAction func playVsCompAction(_ sender: UIButton) {
@@ -46,7 +53,26 @@ class ViewController: UIViewController {
         }
         brain.playCompBool = true
         brain.twoPlayerBool = false
+        twoPlayerButton.isHidden = true
+        playVsCompButton.isHidden = true
+//        playerOneLabel.text = "Go Player \"X\""
+        beXButton.isHidden = false
+        beOButton.isHidden = false
+    }
+    
+    @IBAction func beXAction(_ sender: UIButton) {
+        playerX = true
+        brain.playerTurn = "x"
         playerOneLabel.text = "Go Player \"X\""
+        beXButton.isHidden = true
+        beOButton.isHidden = true
+    }
+    @IBAction func beOAction(_ sender: UIButton) {
+        playerX = false
+        brain.playerTurn = "o"
+        playerOneLabel.text = "Go Player \"O\""
+        beXButton.isHidden = true
+        beOButton.isHidden = true
     }
     
     func pickXCompO(_ button: UIButton) {
@@ -64,7 +90,7 @@ class ViewController: UIViewController {
     @IBAction func gameButtons(_ sender: UIButton) {
         
         if brain.twoPlayerBool {
-            brain.assignButtons(sender)
+            brain.assignXorOtoButtons(sender)
             brain.checkForWinner()
             
             if brain.playerTurn == "x" {
@@ -84,7 +110,8 @@ class ViewController: UIViewController {
                 playerTwoLabel.text = ""
             }
         } else if brain.playCompBool {
-            brain.assignComp(sender, xOButtons)
+            brain.randomComputerGame(sender, xOButtons, playerX)
+//            brain.smartComp(sender, xOButtons)
             brain.checkForWinner()
             if brain.gameOver {
                 winnersLabel.text = brain.gameIsOver(brain.gameOver, xOButtons)
@@ -107,12 +134,14 @@ class ViewController: UIViewController {
         brain.gameStatus = ["","","","","","","","",""]
         brain.gameOver = false
         brain.playerTurn = "x" 
-        playerOneLabel.text = "Go Player \"X\""
+//        playerOneLabel.text = "Go Player \"X\""
         playerTwoLabel.text = ""
         winnersLabel.text = ""
         brain.twoPlayerBool = false
         brain.playCompBool = false
         brain.buttonTracker = xOButtons
+        twoPlayerButton.isHidden = false
+        playVsCompButton.isHidden = false
     }
 }
 
