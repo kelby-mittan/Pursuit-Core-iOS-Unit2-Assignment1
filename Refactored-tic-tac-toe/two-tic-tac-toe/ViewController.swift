@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var xOButtons: [UIButton]!
+    
     @IBOutlet weak var playerOneLabel: UILabel!
     @IBOutlet weak var playerTwoLabel: UILabel!
     @IBOutlet weak var winnersLabel: UILabel!
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
         twoPlayerButton.layer.cornerRadius = 10
         playVsCompButton.layer.cornerRadius = 10
         resetButton.layer.cornerRadius = 15
+        brain.buttonTracker = xOButtons
     }
     var brain = TicTacToeBrain()
     
@@ -52,7 +54,6 @@ class ViewController: UIViewController {
         let randomButton = xOButtons.randomElement()!
         button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
         button.isEnabled = false
-//        playerTurn.text = ""
         randomButton.setBackgroundImage(UIImage(named: "oImage"), for: .normal)
         randomButton.isEnabled = false
         xOButtons.removeAll { (button) -> Bool in
@@ -64,7 +65,7 @@ class ViewController: UIViewController {
         
         if brain.twoPlayerBool {
             brain.assignButtons(sender)
-            brain.checkForWinner(sender)
+            brain.checkForWinner()
             
             if brain.playerTurn == "x" {
                 playerOneLabel.text = "Go Player \"X\""
@@ -84,8 +85,16 @@ class ViewController: UIViewController {
             }
         } else if brain.playCompBool {
             brain.assignComp(sender, xOButtons)
-//            brain.smartComp(sender, xOButtons)
-            
+            brain.checkForWinner()
+            if brain.gameOver {
+                winnersLabel.text = brain.gameIsOver(brain.gameOver, xOButtons)
+                playerOneLabel.text = ""
+                playerTwoLabel.text = ""
+            } else if brain.allButtonsDisabled(xOButtons) {
+                winnersLabel.text = "It's a Tie!!"
+                playerOneLabel.text = ""
+                playerTwoLabel.text = ""
+            }
         }
         
     }
@@ -97,12 +106,13 @@ class ViewController: UIViewController {
         }
         brain.gameStatus = ["","","","","","","","",""]
         brain.gameOver = false
-        brain.playerTurn = "x"
+        brain.playerTurn = "x" 
         playerOneLabel.text = "Go Player \"X\""
         playerTwoLabel.text = ""
         winnersLabel.text = ""
         brain.twoPlayerBool = false
         brain.playCompBool = false
+        brain.buttonTracker = xOButtons
     }
 }
 
