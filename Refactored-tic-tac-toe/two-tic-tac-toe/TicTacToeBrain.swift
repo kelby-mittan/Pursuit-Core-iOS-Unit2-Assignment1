@@ -10,8 +10,6 @@ import UIKit
 
 class TicTacToeBrain {
     
-    
-    var buttonTracker = [UIButton]()
     var tagNumberTracker = [Int]()
     var keepGoing = true
     var gameStatus = ["","","","","","","","",""]
@@ -58,13 +56,12 @@ class TicTacToeBrain {
     func randomComputerGame(_ button: UIButton,_ buttons: [UIButton], _ playerX: Bool) {
         if playerX {
             if gameStatus[button.tag] == "" {
-            gameStatus[button.tag] = playerTurn
-            button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
-            button.isEnabled = false
-            button.adjustsImageWhenDisabled = false
-            tagNumberTracker.append(button.tag)
-            
-            repeat {
+                gameStatus[button.tag] = playerTurn
+                button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
+                button.isEnabled = false
+                button.adjustsImageWhenDisabled = false
+                tagNumberTracker.append(button.tag)
+                
                 for randomButton in buttons.shuffled() {
                     if gameStatus[randomButton.tag] == "" {
                         randomButton.setBackgroundImage(UIImage(named: "oImage"), for: .normal)
@@ -76,8 +73,6 @@ class TicTacToeBrain {
                         break
                     }
                 }
-                print(gameStatus)
-            } while keepGoing == true
             }
         } else {
                 if gameStatus[button.tag] == "" {
@@ -87,20 +82,17 @@ class TicTacToeBrain {
                     button.adjustsImageWhenDisabled = false
                     tagNumberTracker.append(button.tag)
                     
-                    repeat {
-                        for randomButton in buttons.shuffled() {
-                            if gameStatus[randomButton.tag] == "" {
-                                randomButton.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
-                                randomButton.isEnabled = false
-                                randomButton.adjustsImageWhenDisabled = false
-                                gameStatus[randomButton.tag] = "x"
-                                tagNumberTracker.append(randomButton.tag)
-                                keepGoing = false
-                                break
-                            }
+                    for randomButton in buttons.shuffled() {
+                        if gameStatus[randomButton.tag] == "" {
+                            randomButton.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
+                            randomButton.isEnabled = false
+                            randomButton.adjustsImageWhenDisabled = false
+                            gameStatus[randomButton.tag] = "x"
+                            tagNumberTracker.append(randomButton.tag)
+                            keepGoing = false
+                            break
                         }
-                        print(gameStatus)
-                    } while keepGoing == true
+                    }
                 }
             }
     }
@@ -128,6 +120,8 @@ class TicTacToeBrain {
         }
         return winnerLabel
     }
+    
+    
     //========================================================================
     // Used if !gameStatus.contains("") to determine if game is tied instead
     //========================================================================

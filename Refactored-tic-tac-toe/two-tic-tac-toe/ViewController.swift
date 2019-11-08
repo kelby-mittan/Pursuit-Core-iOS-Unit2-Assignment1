@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet var xOButtons: [UIButton]!
-    
     @IBOutlet weak var playerOneLabel: UILabel!
     @IBOutlet weak var playerTwoLabel: UILabel!
     @IBOutlet weak var winnersLabel: UILabel!
@@ -21,9 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var beXButton: UIButton!
     @IBOutlet weak var beOButton: UIButton!
     
+    var brain = TicTacToeBrain()
+    var playerX = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         for button in xOButtons {
             button.isEnabled = false
         }
@@ -32,12 +33,9 @@ class ViewController: UIViewController {
         beXButton.layer.cornerRadius = 10
         beOButton.layer.cornerRadius = 10
         resetButton.layer.cornerRadius = 15
-        brain.buttonTracker = xOButtons
         beXButton.isHidden = true
         beOButton.isHidden = true
     }
-    var brain = TicTacToeBrain()
-    var playerX = true
     
     @IBAction func twoPlayerAction(_ sender: UIButton) {
         for button in xOButtons {
@@ -54,7 +52,6 @@ class ViewController: UIViewController {
         brain.twoPlayerBool = false
         twoPlayerButton.isHidden = true
         playVsCompButton.isHidden = true
-//        playerOneLabel.text = "Go Player \"X\""
         beXButton.isHidden = false
         beOButton.isHidden = false
     }
@@ -78,18 +75,6 @@ class ViewController: UIViewController {
         playerOneLabel.text = "Go Player \"O\""
         beXButton.isHidden = true
         beOButton.isHidden = true
-    }
-    
-    func pickXCompO(_ button: UIButton) {
-        brain.playerTurn = "x"
-        let randomButton = xOButtons.randomElement()!
-        button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
-        button.isEnabled = false
-        randomButton.setBackgroundImage(UIImage(named: "oImage"), for: .normal)
-        randomButton.isEnabled = false
-        xOButtons.removeAll { (button) -> Bool in
-            button.isEnabled == false
-        }
     }
     
     @IBAction func gameButtons(_ sender: UIButton) {
@@ -139,12 +124,10 @@ class ViewController: UIViewController {
         brain.gameStatus = ["","","","","","","","",""]
         brain.gameOver = false
         brain.playerTurn = "x" 
-//        playerOneLabel.text = "Go Player \"X\""
         playerTwoLabel.text = ""
         winnersLabel.text = ""
         brain.twoPlayerBool = false
         brain.playCompBool = false
-        brain.buttonTracker = xOButtons
         twoPlayerButton.isHidden = false
         playVsCompButton.isHidden = false
         beXButton.isHidden = true
