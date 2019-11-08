@@ -105,47 +105,6 @@ class TicTacToeBrain {
             }
     }
     
-    func smartComp(_ button: UIButton, _ gameButtons: [UIButton]) {
-        if gameStatus[button.tag] == "" {
-            gameStatus[button.tag] = playerTurn
-            if playerTurn == "x" {
-                button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
-                playerTurn = "x"
-                button.isEnabled = false
-                button.adjustsImageWhenDisabled = false
-                switch button.tag {
-                case 0:
-                    if gameStatus[1] == "x" {
-                        assignO(gameButtons[2])
-                    } else if gameStatus[2] == "x" {
-                        assignO(gameButtons[1])
-                    }
-                case 1:
-                if gameStatus[0] == "x" {
-                    assignO(gameButtons[2])
-                } else if gameStatus[2] == "x" {
-                    assignO(gameButtons[0])
-                }
-                case 2:
-                    if gameStatus[1] == "x" {
-                        assignO(gameButtons[0])
-                    } else if gameStatus[0] == "x" {
-                        assignO(gameButtons[1])
-                    }
-                case 3:
-                    if gameStatus[0] == "x" {
-                        assignO(gameButtons[2])
-                    } else if gameStatus[2] == "x" {
-                        assignO(gameButtons[0])
-                    }
-                default:
-                    assignO(gameButtons[4])
-                }
-            }
-        }
-    }
-    
-    
     func checkForWinner() {
         for array in winningArr {
             if gameStatus[array[0]] != "" && gameStatus[array[0]] == gameStatus[array[1]] && gameStatus[array[1]] == gameStatus[array[2]] {
@@ -169,20 +128,67 @@ class TicTacToeBrain {
         }
         return winnerLabel
     }
+    //========================================================================
+    // Used if !gameStatus.contains("") to determine if game is tied instead
+    //========================================================================
     
-    func allButtonsDisabled(_ buttons: [UIButton]) -> Bool {
-        var disabledButtonArr = [Bool]()
-        var itsATie = Bool()
-        for button in buttons {
-            if button.isEnabled == false {
-                disabledButtonArr.append(true)
-            }
-        }
-        if disabledButtonArr.count == 9 {
-            itsATie = true
-        }
-        return itsATie
-    }
+//    func allButtonsDisabled(_ buttons: [UIButton]) -> Bool {
+//        var disabledButtonArr = [Bool]()
+//        var itsATie = Bool()
+//        for button in buttons {
+//            if button.isEnabled == false {
+//                disabledButtonArr.append(true)
+//            }
+//        }
+//        if disabledButtonArr.count == 9 {
+//            itsATie = true
+//        }
+//        return itsATie
+//    }
+    
+    //=================================================================
+    //  Attempt at smart computer function, not used in ViewController
+    //=================================================================
+    
+//    func smartComp(_ button: UIButton, _ gameButtons: [UIButton]) {
+//        if gameStatus[button.tag] == "" {
+//            gameStatus[button.tag] = playerTurn
+//            if playerTurn == "x" {
+//                button.setBackgroundImage(UIImage(named: "xImage"), for: .normal)
+//                playerTurn = "x"
+//                button.isEnabled = false
+//                button.adjustsImageWhenDisabled = false
+//                switch button.tag {
+//                case 0:
+//                    if gameStatus[1] == "x" {
+//                        assignO(gameButtons[2])
+//                    } else if gameStatus[2] == "x" {
+//                        assignO(gameButtons[1])
+//                    }
+//                case 1:
+//                if gameStatus[0] == "x" {
+//                    assignO(gameButtons[2])
+//                } else if gameStatus[2] == "x" {
+//                    assignO(gameButtons[0])
+//                }
+//                case 2:
+//                    if gameStatus[1] == "x" {
+//                        assignO(gameButtons[0])
+//                    } else if gameStatus[0] == "x" {
+//                        assignO(gameButtons[1])
+//                    }
+//                case 3:
+//                    if gameStatus[0] == "x" {
+//                        assignO(gameButtons[2])
+//                    } else if gameStatus[2] == "x" {
+//                        assignO(gameButtons[0])
+//                    }
+//                default:
+//                    assignO(gameButtons[4])
+//                }
+//            }
+//        }
+//    }
     
 }
 

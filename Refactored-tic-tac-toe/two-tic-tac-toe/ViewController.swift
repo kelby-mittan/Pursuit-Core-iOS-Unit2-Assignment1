@@ -50,9 +50,6 @@ class ViewController: UIViewController {
         playerOneLabel.text = "Go Player \"X\""
     }
     @IBAction func playVsCompAction(_ sender: UIButton) {
-        for button in xOButtons {
-            button.isEnabled = true
-        }
         brain.playCompBool = true
         brain.twoPlayerBool = false
         twoPlayerButton.isHidden = true
@@ -63,6 +60,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func beXAction(_ sender: UIButton) {
+        for button in xOButtons {
+            button.isEnabled = true
+        }
         playerX = true
         brain.playerTurn = "x"
         playerOneLabel.text = "Go Player \"X\""
@@ -70,6 +70,9 @@ class ViewController: UIViewController {
         beOButton.isHidden = true
     }
     @IBAction func beOAction(_ sender: UIButton) {
+        for button in xOButtons {
+            button.isEnabled = true
+        }
         playerX = false
         brain.playerTurn = "o"
         playerOneLabel.text = "Go Player \"O\""
@@ -106,7 +109,7 @@ class ViewController: UIViewController {
                 winnersLabel.text = brain.gameIsOver(brain.gameOver, xOButtons)
                 playerOneLabel.text = ""
                 playerTwoLabel.text = ""
-            } else if brain.allButtonsDisabled(xOButtons) {
+            } else if !brain.gameStatus.contains("") {
                 winnersLabel.text = "It's a Tie!!"
                 playerOneLabel.text = ""
                 playerTwoLabel.text = ""
@@ -119,7 +122,7 @@ class ViewController: UIViewController {
                 winnersLabel.text = brain.gameIsOver(brain.gameOver, xOButtons)
                 playerOneLabel.text = ""
                 playerTwoLabel.text = ""
-            } else if brain.allButtonsDisabled(xOButtons) {
+            } else if !brain.gameStatus.contains("") { 
                 winnersLabel.text = "It's a Tie!!"
                 playerOneLabel.text = ""
                 playerTwoLabel.text = ""
@@ -144,6 +147,8 @@ class ViewController: UIViewController {
         brain.buttonTracker = xOButtons
         twoPlayerButton.isHidden = false
         playVsCompButton.isHidden = false
+        beXButton.isHidden = true
+        beOButton.isHidden = true
     }
 }
 

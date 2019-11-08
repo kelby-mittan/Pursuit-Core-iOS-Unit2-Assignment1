@@ -13,9 +13,7 @@
 		029EB6FF236CAA7A00B6CDAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029EB6FD236CAA7A00B6CDAB /* Main.storyboard */; };
 		029EB701236CAA7E00B6CDAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 029EB700236CAA7E00B6CDAB /* Assets.xcassets */; };
 		029EB704236CAA7E00B6CDAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 029EB702236CAA7E00B6CDAB /* LaunchScreen.storyboard */; };
-		029EB70C236CAAC300B6CDAB /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EB70B236CAAC300B6CDAB /* GameButton.swift */; };
 		029EB70E236CAB0400B6CDAB /* TicTacToeBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EB70D236CAB0400B6CDAB /* TicTacToeBrain.swift */; };
-		029EB710236CAB2F00B6CDAB /* RowColumnArr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029EB70F236CAB2F00B6CDAB /* RowColumnArr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +25,7 @@
 		029EB700236CAA7E00B6CDAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		029EB703236CAA7E00B6CDAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		029EB705236CAA7E00B6CDAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		029EB70B236CAAC300B6CDAB /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		029EB70D236CAB0400B6CDAB /* TicTacToeBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeBrain.swift; sourceTree = "<group>"; };
-		029EB70F236CAB2F00B6CDAB /* RowColumnArr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowColumnArr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,9 +60,7 @@
 			children = (
 				029EB6F7236CAA7A00B6CDAB /* AppDelegate.swift */,
 				029EB6F9236CAA7A00B6CDAB /* SceneDelegate.swift */,
-				029EB70B236CAAC300B6CDAB /* GameButton.swift */,
 				029EB70D236CAB0400B6CDAB /* TicTacToeBrain.swift */,
-				029EB70F236CAB2F00B6CDAB /* RowColumnArr.swift */,
 				029EB6FB236CAA7A00B6CDAB /* ViewController.swift */,
 				029EB6FD236CAA7A00B6CDAB /* Main.storyboard */,
 				029EB700236CAA7E00B6CDAB /* Assets.xcassets */,
@@ -148,8 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				029EB6FC236CAA7A00B6CDAB /* ViewController.swift in Sources */,
-				029EB70C236CAAC300B6CDAB /* GameButton.swift in Sources */,
-				029EB710236CAB2F00B6CDAB /* RowColumnArr.swift in Sources */,
 				029EB6F8236CAA7A00B6CDAB /* AppDelegate.swift in Sources */,
 				029EB70E236CAB0400B6CDAB /* TicTacToeBrain.swift in Sources */,
 				029EB6FA236CAA7A00B6CDAB /* SceneDelegate.swift in Sources */,
